@@ -18,7 +18,7 @@
  * <http://dojotoolkit.org/reference-guide/loader/amd.html>.
  */
 define([ 'dojo/has', 'require' ], function (has, require) {
-	var app = {};
+	var app = null;
 
 	console.log('Hello from the server!');
 	
@@ -31,13 +31,14 @@ define([ 'dojo/has', 'require' ], function (has, require) {
 		    app.set('title', 'Nanna-TV');
 	        app.set('port', process.env.PORT || 3000);
 	        app.set('db', db);
+	        app.set('mongoose', mongoose);
 	        app.use(express.favicon());
 	        app.use(express.bodyParser());
 	        app.use(express.methodOverride());
 	        app.use(express.cookieParser('your secret here'));
 	        app.use(express.session());
 	        app.use(app.router);
-	        app.use(express.static(path.join('public')));
+	        app.use("/public", express.static(path.join('public')));
         });
         
         app.configure('development', function(){
