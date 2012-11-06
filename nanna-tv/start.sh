@@ -1,0 +1,1 @@
+node dojo/dojo.js load=app/run
