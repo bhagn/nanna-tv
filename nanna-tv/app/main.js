@@ -20,10 +20,10 @@
 define([ 'dojo/has', 'require' ], function (has, require) {
 	var app = null;
 
-	console.log('Hello from the server!');
+	console.log('Starting Nanna TV!');
 	
-	require(["dojo/node!express/index", "dojo/node!express-load/index", "dojo/node!mongoose/index", "dojo/node!http", "dojo/node!path"], function(express, load, mongoose, http, path) {
-		console.log("Loading complete...");
+	require(["dojo/node!express/index", "dojo/node!express-load/index", "dojo/node!mongoose/index", "dojo/node!http", "dojo/node!path", "dojo/_base/xhr"], function(express, load, mongoose, http, path) {
+		console.log("Dependencies loaded..");
 		app = express();
 		db = mongoose.createConnection("127.0.0.1", "nanna-tv");
 		
