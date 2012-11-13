@@ -6,7 +6,7 @@ exports.index = function(req, res, next) {
         res.send(err.message + "<br/>" + err.stack);
       
       var templateString = fs.readFileSync("views/index.html", 'utf8');
-      if(series.length == 0)
+      if(series.length != 0)
         templateString = fs.readFileSync("views/search.html", 'utf8');
       var template = new dtl.Template(templateString);
       var context = new Context({series: series});

@@ -48,3 +48,18 @@ body {
     -moz-transform: rotate(5deg);
     -ms-transform: rotate(5deg);
 }
+
+.alwaysVisibleFooter {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    overflow: hidden;
+    background: #22252A;
+    padding-top: 5px;
+}
+
+.alwaysVisibleFooter > form {
+    margin-left: 10px;
+    margin-top: 5px;
+}
