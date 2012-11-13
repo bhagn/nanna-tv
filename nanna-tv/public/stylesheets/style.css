@@ -12,30 +12,31 @@ body {
     font-size: 25px;
     text-align: center;
     height: 20px;
-    padding: 5px;
+    padding: 5px 5px 15px 5px;
     position: absolute;
     bottom: 10px;
     right: 20px;
+    background: #F9D654;
+    border-radius: 5px;
 }
 
 .appTitleKan {
     background: #F9D654;
-    border-radius: 5px;
     color: #000;
     font-weight:900;
     padding: 2px;
     padding-bottom: 4px;
-    margin-right: 0px;
 }
 
 .t {
     background: #000;
     color: #fff;
     display:inline-block;
-    padding: 2px;
+    padding: 3px;
     -webkit-transform: rotate(-10deg);
     -moz-transform: rotate(-10deg);
     -ms-transform: rotate(-10deg);
+    margin-left: -2px;
 }
 
 .v {
