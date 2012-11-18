@@ -11,6 +11,7 @@ require({
 	// that contains dojo.js. Since all packages are in the root, we just leave it blank. (If you change this, you
 	// will also need to update `app.profile.js`).
 	baseUrl: '',
+	selectorEngine: '../node_modules/sizzle/sizzle',
 
 	// A list of packages to register. Strictly speaking, you do not need to register any packages,
 	// but you can't require "app" and get app/main.js if you do not register the "app" package (the loader will look

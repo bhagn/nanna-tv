@@ -22,7 +22,7 @@ define([ 'dojo/has', 'require' ], function (has, require) {
 
 	console.log('Starting Nanna TV!');
 	
-	require(["dojo/node!express/index", "dojo/node!express-load/index", "dojo/node!mongoose/index", "dojo/node!http", "dojo/node!path", "dojo/_base/xhr"], function(express, load, mongoose, http, path) {
+	require(["dojo/node!express/index", "dojo/node!express-load/index", "dojo/node!mongoose/index", "dojo/node!http", "dojo/node!path"], function(express, load, mongoose, http, path) {
 		console.log("Dependencies loaded..");
 		app = express();
 		db = mongoose.createConnection("127.0.0.1", "nanna-tv");
@@ -32,6 +32,7 @@ define([ 'dojo/has', 'require' ], function (has, require) {
 	        app.set('port', process.env.PORT || 3000);
 	        app.set('db', db);
 	        app.set('mongoose', mongoose);
+	        app.set('jquery_cdn', 'http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
 	        app.use(express.favicon());
 	        app.use(express.bodyParser());
 	        app.use(express.methodOverride());
@@ -49,6 +50,7 @@ define([ 'dojo/has', 'require' ], function (has, require) {
 		load('models')
 		  .then('controllers')
 		  .then('routes')
+		  .then('parsers')
 		  .into(app);
 		  
 		app.listen(app.get('port'));
