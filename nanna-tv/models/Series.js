@@ -12,7 +12,8 @@ module.exports = function(app) {
 	    genre: String,
 	    category: String,
 	    releasedOn: Date,
-	    language: String 
+	    language: String,
+	    summary: String
 	});
     Series = db.model('Series', schema);
     return Series;

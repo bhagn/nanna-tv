@@ -33,6 +33,7 @@ TVLinksParser.prototype.getSearchResults = function(document) {
         
         temp["category"] = details[0].split(":")[1].trim();
         temp["releaseDate"] = details[1].split(":")[1].trim();
+        temp["summary"] = $($(spans).last().children()[2]).text();
         temp["genre"] = new Array(details[2].split(":")[1].trim());
         for(var i=3, len=details.length; i<len; i++)
             temp["genre"].push(details[i].trim());  
