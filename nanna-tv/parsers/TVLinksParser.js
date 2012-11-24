@@ -27,12 +27,12 @@ TVLinksParser.prototype.getSearchResults = function(document) {
         var a = $(this).children()[0];
         temp["permalink"] = urlPrefix + $(a).attr("href");
         var spans = $(a).children();
-        temp["thumbnail"] = $(spans).first().find("img").first().attr("src");
+        temp["thumbnailLink"] = $(spans).first().find("img").first().attr("src");
         temp["title"] = $(spans).last().children().first().find("span").first().text();
         var details = $($(spans).last().children()[1]).text().split(",");
         
         temp["category"] = details[0].split(":")[1].trim();
-        temp["releaseDate"] = details[1].split(":")[1].trim();
+        temp["releasedOn"] = details[1].split(":")[1].trim();
         temp["summary"] = $($(spans).last().children()[2]).text();
         temp["genre"] = new Array(details[2].split(":")[1].trim());
         for(var i=3, len=details.length; i<len; i++)

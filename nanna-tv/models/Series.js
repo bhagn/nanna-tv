@@ -7,7 +7,6 @@ module.exports = function(app) {
     var schema = new mongoose.Schema({
 	    title: String,
 	    link: String,
-	    description: String,
 	    thumbnailLink: String,
 	    genre: String,
 	    category: String,
