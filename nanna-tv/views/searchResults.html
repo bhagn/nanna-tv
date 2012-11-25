@@ -31,10 +31,12 @@
                 <img src="{{ firstResult.thumbnailLink }}" style="float: right"/>
                 <p>{{ firstResult.summary }}</p>
                 <div>
+                    <span class="label label-important">{{ firstResult.category }}</span>
                     {% for genre in firstResult.genre %}
                     <span class="label label-info">{{ genre}}</span>
                     {% endfor %}
                 </div>
+                <a href="#" class="btn btn-success pull-right"> <i class="icon-plus-sign icon-white"></i> Add to Library</a>
             </div>
             <div class="row-fluid">
                 <ul class="thumbnails">
@@ -42,12 +44,14 @@
             <li class="span4">
                 <div class="thumbnail">
                   <div class="searchThumbnail">
-                    <img src="{{ item.thumbnailLink }}" width="100%;" align="center""/>
+                      <img src="{{ item.thumbnailLink }}" width="100%;" align="center""/>
                   </div>
                   <div class="caption">
+                      <button class="btn btn-mini btn-success addToLibraryButton"><i class="icon-plus-sign icon-white"></i></button>
                     <h3>{{ item.title }}</h3>
-                    <p>{{ item.summary }}</p>
+                    <p class="searchSummary">{{ item.summary }}</p>
                     <div>
+                        <span class="label label-important">{{ item.category }}</span>
                         {% for genre in item.genre %}
                         <span class="label label-info">{{ genre}}</span>
                         {% endfor %}

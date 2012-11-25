@@ -69,3 +69,13 @@
     overflow: hidden;
     text-align: center;
 }
+
+.addToLibraryButton {
+    float: right;
+    margin-top: -5px;
+}
+
+.searchSummary {
+    height: 100px;
+    overflow: hidden;
+}
