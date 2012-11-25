@@ -43,15 +43,16 @@
             {% for item in series %}
             <li class="span4">
                 <div class="thumbnail">
-                  <div class="searchThumbnail">
-                      <img src="{{ item.thumbnailLink }}" width="100%;" align="center""/>
+                  <div class="searchThumbnail" style="background:url({{ item.thumbnailLink }}); background-size: cover;">
+                  </div>
+                  <div class="addToLibraryContainer">
+                      <span class="label label-important">{{ item.category }}</span>
+                      <button class="btn btn-mini btn-success addToLibraryButton" title="Add to Library"><i class="icon-plus-sign"></i></button>
                   </div>
                   <div class="caption">
-                      <button class="btn btn-mini btn-success addToLibraryButton"><i class="icon-plus-sign icon-white"></i></button>
                     <h3>{{ item.title }}</h3>
                     <p class="searchSummary">{{ item.summary }}</p>
-                    <div>
-                        <span class="label label-important">{{ item.category }}</span>
+                    <div class="genre">
                         {% for genre in item.genre %}
                         <span class="label label-info">{{ genre}}</span>
                         {% endfor %}
