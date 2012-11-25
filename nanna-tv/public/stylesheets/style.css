@@ -63,3 +63,9 @@
 .searchResultContent {
     margin: 10px;
 }
+
+.searchThumbnail {
+    height: 150px;
+    overflow: hidden;
+    text-align: center;
+}

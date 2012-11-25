@@ -36,24 +36,39 @@
                     {% endfor %}
                 </div>
             </div>
+            <div class="row-fluid">
+                <ul class="thumbnails">
             {% for item in series %}
-            <div class="searchResult">
-                <table>
-                    <td width="100px"><img src="{{ item.thumbnailLink }}"/></td>
-                    <td>
-                        <div class="searchResultContent">
-                            <h3>{{ item.title }}</h3>
-                            <span>{{ item.summary }}</span>
-                            <div>
-                                {% for genre in item.genre %}
-                                <span class="label label-info">{{ genre}}</span>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </td>
-                </table>
-            </div>
+            <li class="span4">
+                <div class="thumbnail">
+                  <div class="searchThumbnail">
+                    <img src="{{ item.thumbnailLink }}" width="100%;" align="center""/>
+                  </div>
+                  <div class="caption">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.summary }}</p>
+                    <div>
+                        {% for genre in item.genre %}
+                        <span class="label label-info">{{ genre}}</span>
+                        {% endfor %}
+                    </div>
+                  </div>
+                </div>
+            </li>
+            {% if forloop.counter0 != 0 %}
+                {% if series.length != forloop.counter0-1 %}
+                    {% if forloop.counter0|add:"1" |divisibleby:"3" %}
+                    
+                    </ul>
+                </div>
+                <div class="row-fluid">
+                    <ul class="thumbnails">
+                    {% endif %}
+                {% endif %}
+            {% endif %}
             {% endfor %}
+            </ul>
+        </div>
         </div>
     </body>
 </html>
