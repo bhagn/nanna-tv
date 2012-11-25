@@ -13,7 +13,11 @@ exports.getResults = function(req, res, next) {
         response.on("end", function() {
 	        var TVLinksParser = req.app.parsers.TVLinksParser;
 	        series = TVLinksParser.getSearchResults(output);
-	        res.send(series);
+	        var templateString = fs.readFileSync("views/searchResults.html", 'utf8');
+	        var template = new dtl.Template(templateString);
+	        var firstResult = series.shift();
+            var context = new Context({firstResult: firstResult, series: series, searchString: searchString});
+	        res.send(template.render(context));
         });
     }, function(err) {
         res.send({error: "An Error Occurred: " + err.message});
