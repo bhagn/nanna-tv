@@ -26,6 +26,7 @@
             </div>
         </div>
         <div class="container" style="margin-top: 50px">
+          {% if firstResult != null %}
             <div class="hero-unit">
                 <h1>{{ firstResult.title }}</h1>
                 <img src="{{ firstResult.thumbnailLink }}" style="float: right"/>
@@ -36,8 +37,11 @@
                     <span class="label label-info">{{ genre}}</span>
                     {% endfor %}
                 </div>
-                <a href="#" class="btn btn-success pull-right"> <i class="icon-plus-sign icon-white"></i> Add to Library</a>
+                <a href="addToLibrary?s={{ firstResult.permalink }}"  class="btn btn-success pull-right"> <i class="icon-plus-sign icon-white"></i> Add to Library</a>
             </div>
+          {% else %}
+            <div class="alert alert-error" style="text-align: center"><strong>Sorry! </strong> Your query didn't return any results.</div>
+          {% endif %}
             <div class="row-fluid">
                 <ul class="thumbnails">
             {% for item in series %}

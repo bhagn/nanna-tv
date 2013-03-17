@@ -21,20 +21,27 @@ TVLinksParser.prototype.getSearchResults = function(document) {
     var urlPrefix = this.url;
     var series = [];
     var op = "";
+    
     $('.table_search_movies', document).find("li").each(function(i, li) {
         var temp = {};
-        op += $(this).html() + "<br/>";
+        op += $(this).html();
+        
+        //check if no results were found
+        if(op.match("Sorry, we couldn't find a match")) return;
+        
         var a = $(this).children()[0];
         temp["permalink"] = urlPrefix + $(a).attr("href");
         var spans = $(a).children();
         temp["thumbnailLink"] = $(spans).first().find("img").first().attr("src");
         temp["title"] = $(spans).last().children().first().find("span").first().text();
-        var details = $($(spans).last().children()[1]).text().split(",");
         
-        temp["category"] = details[0].split(":")[1].trim();
-        temp["releasedOn"] = details[1].split(":")[1].trim();
+        var details = $($(spans).last().children()[1]).text().split(",");
+
+        temp["category"] = details[0]? details[0].split(":")[1]? details[0].split(":")[1].trim(): "unknown" : "unknown";
+        temp["releasedOn"] = details[1]? details[1].split(":")[1]? details[1].split(":")[1].trim(): "unknown": "unknown";
+        temp["genre"] = details[2]? new Array(details[2].split(":")[1].trim()) : [];
         temp["summary"] = $($(spans).last().children()[2]).text();
-        temp["genre"] = new Array(details[2].split(":")[1].trim());
+        
         for(var i=3, len=details.length; i<len; i++)
             temp["genre"].push(details[i].trim());  
 
